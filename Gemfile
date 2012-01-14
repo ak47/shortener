@@ -7,6 +7,7 @@ gem 'rails', '3.1.3'
 
 gem 'pg'
 gem 'thin'
+gem 'haml'
 
 
 # Gems used only for assets and not required
@@ -33,9 +34,11 @@ gem 'jquery-rails'
 
 group :test do
   # Pretty printed test output
-  gem 'turn', '~> 0.8.3', :require => false
+  gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :development do
   gem 'foreman'
+  gem 'rspec-rails'
 end
