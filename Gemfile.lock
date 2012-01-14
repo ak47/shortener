@@ -53,6 +53,11 @@ GEM
     eventmachine (0.12.10)
     execjs (1.2.13)
       multi_json (~> 1.0)
+    factory_girl (2.4.0)
+      activesupport
+    factory_girl_rails (1.5.0)
+      factory_girl (~> 2.4.0)
+      railties (>= 3.0.0)
     ffi (1.0.11)
     foreman (0.32.0)
       term-ansicolor (~> 1.0.5)
@@ -152,6 +157,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   coffee-rails (~> 3.1.1)
+  factory_girl_rails
   foreman
   haml
   jquery-rails
