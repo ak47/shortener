@@ -2,13 +2,9 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
 gem 'pg'
 gem 'thin'
 gem 'haml'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,23 +19,21 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
-  # Pretty printed test output
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'factory_girl_rails'
 end
 
 group :development do
   gem 'foreman'
+end
+
+group :development, :test do
+  gem 'awesome_print'
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-rspec'
 end
