@@ -1,0 +1,17 @@
+%h1 Listing shorties
+%table
+  %tr
+    %th Url
+    %th Key
+    %th
+    %th
+    %th
+  - @shorties.each do |shorty|
+    %tr
+      %td= shorty.url
+      %td= shorty.key
+      %td= link_to 'Show', shorty
+      %td= link_to 'Edit', edit_shorty_path(shorty)
+      %td= link_to 'Destroy', shorty, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Shorty', new_shorty_path

@@ -1,4 +1,6 @@
 Shortener::Application.routes.draw do
+  resources :shorties
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %b Url:
+  = @shorty.url
+%p
+  %b Key:
+  = @shorty.key
+= link_to 'Edit', edit_shorty_path(@shorty)
+|
+\#{link_to 'Back', shorties_path}
