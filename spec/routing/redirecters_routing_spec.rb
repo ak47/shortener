@@ -8,7 +8,7 @@ describe RedirectersController do
     end
 
     it "routes to #show" do
-      {:get => "/r/some_key"}.should route_to(:controller => "redirecters",
+      {:get => "some_key"}.should route_to(:controller => "redirecters",
                                               :action => "show",
                                               :key => 'some_key')
     end
