@@ -1,4 +1,6 @@
 class ShortiesController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /shorties
   # GET /shorties.json
   def index

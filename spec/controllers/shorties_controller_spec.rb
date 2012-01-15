@@ -1,14 +1,18 @@
 require 'spec_helper'
 
 describe ShortiesController do
+  before (:each) do
+    @user = Factory.create(:user)
+    controller.sign_in @user
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # Shorty. As you add validations to Shorty, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    Factory.build(:shorty).attributes
+    Factory.attributes_for(:shorty)
   end
-  
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ShortiesController. Be sure to keep this updated too.
@@ -16,7 +20,7 @@ describe ShortiesController do
     {}
   end
 
-  describe "GET index" do
+  describe "GET index", :focus do
     it "assigns all shorties as @shorties" do
       shorty = Shorty.create! valid_attributes
       get :index, {}, valid_session
