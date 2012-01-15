@@ -5,6 +5,10 @@
 %p
   %b Key:
   = @shorty.key
+%p
+  %b Test Url:
+  = link_to root_directer_url(@shorty.key), root_directer_url(@shorty.key)
+
 = link_to 'Edit', edit_shorty_path(@shorty)
 |
 \#{link_to 'Back', shorties_path}
