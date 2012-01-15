@@ -2,6 +2,7 @@ require 'zlib'
 
 class Shorty < ActiveRecord::Base
   include Zlib
+  has_many :hits
 
   validates :url, :presence => true
 

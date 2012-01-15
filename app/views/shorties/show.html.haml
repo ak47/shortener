@@ -8,6 +8,9 @@
 %p
   %b Test Url:
   = link_to root_directer_url(@shorty.key), root_directer_url(@shorty.key)
+%p
+  %b Hit Count:
+  = @shorty.hits.count
 
 = link_to 'Edit', edit_shorty_path(@shorty)
 |

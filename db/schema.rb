@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114222541) do
+ActiveRecord::Schema.define(:version => 20120115011210) do
+
+  create_table "hits", :force => true do |t|
+    t.datetime "created_at"
+    t.integer  "shorty_id"
+  end
 
   create_table "shorties", :force => true do |t|
     t.text     "url"

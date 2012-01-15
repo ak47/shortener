@@ -1,4 +1,6 @@
 class RedirectersController < ApplicationController
+  after_filter :record_hit
+
   def show
     if params[:key].present?
       @shorty = Shorty.find_by_key(params[:key])
@@ -8,4 +10,8 @@ class RedirectersController < ApplicationController
     end
   end
 
+  private
+  def record_hit
+    @shorty.hits.create if @shorty.present?
+  end
 end
