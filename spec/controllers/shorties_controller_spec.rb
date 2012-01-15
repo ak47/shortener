@@ -20,9 +20,9 @@ describe ShortiesController do
     {}
   end
 
-  describe "GET index", :focus do
+  describe "GET index" do
     it "assigns all shorties as @shorties" do
-      shorty = Shorty.create! valid_attributes
+      shorty = Factory.create(:shorty, :user => @user)
       get :index, {}, valid_session
       assigns(:shorties).should eq([shorty])
     end
@@ -30,7 +30,7 @@ describe ShortiesController do
 
   describe "GET show" do
     it "assigns the requested shorty as @shorty" do
-      shorty = Shorty.create! valid_attributes
+      shorty = Factory.create(:shorty, :user => @user)
       get :show, {:id => shorty.to_param}, valid_session
       assigns(:shorty).should eq(shorty)
     end
@@ -45,7 +45,7 @@ describe ShortiesController do
 
   describe "GET edit" do
     it "assigns the requested shorty as @shorty" do
-      shorty = Shorty.create! valid_attributes
+      shorty = Factory.create(:shorty, :user => @user)
       get :edit, {:id => shorty.to_param}, valid_session
       assigns(:shorty).should eq(shorty)
     end
@@ -91,7 +91,7 @@ describe ShortiesController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested shorty" do
-        shorty = Shorty.create! valid_attributes
+        shorty = Factory.create(:shorty, :user => @user)
         # Assuming there are no other shorties in the database, this
         # specifies that the Shorty created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -101,13 +101,13 @@ describe ShortiesController do
       end
 
       it "assigns the requested shorty as @shorty" do
-        shorty = Shorty.create! valid_attributes
+        shorty = Factory.create(:shorty, :user => @user)
         put :update, {:id => shorty.to_param, :shorty => valid_attributes}, valid_session
         assigns(:shorty).should eq(shorty)
       end
 
       it "redirects to the shorty" do
-        shorty = Shorty.create! valid_attributes
+        shorty = Factory.create(:shorty, :user => @user)
         put :update, {:id => shorty.to_param, :shorty => valid_attributes}, valid_session
         response.should redirect_to(shorty)
       end
@@ -115,7 +115,7 @@ describe ShortiesController do
 
     describe "with invalid params" do
       it "assigns the shorty as @shorty" do
-        shorty = Shorty.create! valid_attributes
+        shorty = Factory.create(:shorty, :user => @user)
         # Trigger the behavior that occurs when invalid params are submitted
         Shorty.any_instance.stub(:save).and_return(false)
         put :update, {:id => shorty.to_param, :shorty => {}}, valid_session
@@ -123,7 +123,7 @@ describe ShortiesController do
       end
 
       it "re-renders the 'edit' template" do
-        shorty = Shorty.create! valid_attributes
+        shorty = Factory.create(:shorty, :user => @user)
         # Trigger the behavior that occurs when invalid params are submitted
         Shorty.any_instance.stub(:save).and_return(false)
         put :update, {:id => shorty.to_param, :shorty => {}}, valid_session
@@ -134,14 +134,14 @@ describe ShortiesController do
 
   describe "DELETE destroy" do
     it "destroys the requested shorty" do
-      shorty = Shorty.create! valid_attributes
+      shorty = Factory.create(:shorty, :user => @user)
       expect {
         delete :destroy, {:id => shorty.to_param}, valid_session
       }.to change(Shorty, :count).by(-1)
     end
 
     it "redirects to the shorties list" do
-      shorty = Shorty.create! valid_attributes
+      shorty = Factory.create(:shorty, :user => @user)
       delete :destroy, {:id => shorty.to_param}, valid_session
       response.should redirect_to(shorties_url)
     end

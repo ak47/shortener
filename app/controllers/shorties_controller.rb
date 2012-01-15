@@ -4,7 +4,7 @@ class ShortiesController < ApplicationController
   # GET /shorties
   # GET /shorties.json
   def index
-    @shorties = Shorty.all
+    @shorties = Shorty.per_user(current_user).all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class ShortiesController < ApplicationController
   # GET /shorties/1
   # GET /shorties/1.json
   def show
-    @shorty = Shorty.find(params[:id])
+    @shorty = Shorty.per_user(current_user).find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,7 +42,7 @@ class ShortiesController < ApplicationController
   # POST /shorties
   # POST /shorties.json
   def create
-    @shorty = Shorty.new(params[:shorty])
+    @shorty = Shorty.new(params[:shorty].merge(:user => current_user))
 
     respond_to do |format|
       if @shorty.save
