@@ -1,4 +1,3 @@
-postgres://ykihndsepa:2BH8pWVsprWuAGBpt2CN@ec2-107-21-110-190.compute-1.amazonaws.com/ykihndsepa
 common: &common
   encoding: unicode
   adapter: postgresql
