@@ -3,7 +3,7 @@ common: &common
   adapter: postgresql
   username: shortener
   password: shortener
-  
+
 development:
   <<: *common
   database: shortener_development
@@ -17,7 +17,4 @@ test:
 
 production:
   <<: *common
-  username: ykihndsepa
-  password: 2BH8pWVsprWuAGBpt2CN
-  hostname: ec2-107-21-110-190.compute-1.amazonaws.com
-  database: ykihndsepa
+

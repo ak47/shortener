@@ -13,5 +13,6 @@ class RedirectersController < ApplicationController
   private
   def record_hit
     @shorty.hits.create if @shorty.present?
+    ::Gabba::Gabba.new('UA-28347073-1','no-ego.net').page_view("home",'/')
   end
 end
